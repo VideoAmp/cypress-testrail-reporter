@@ -2,8 +2,13 @@ export interface TestRailOptions {
   domain: string;
   username: string;
   password: string;
+  buildUrl: string;
+  githubUrl: string;
   projectId: number;
   suiteId: number;
+  runId: number;
+  includeAll: boolean;
+  caseIds: Array<object>;
   assignedToId?: number;
 }
 
