@@ -1,22 +1,26 @@
 {
-  "name": "cypress-testrail-reporter",
-  "version": "1.1.0",
+  "name": "@videoamp/cypress-testrail-reporter",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/VideoAmp/cypress-testrail-reporter.git"
+  },
+  "version": "1.2.0",
   "description": "A Testrail reporter for cypress including TestRail API basic library",
   "main": "index.js",
   "private": false,
-  "keywords": ["cypress", "testrail", "reporter"],
+  "keywords": [
+    "cypress",
+    "testrail",
+    "reporter"
+  ],
   "author": {
-    "name": "Milutin Savovic",
-    "email": "mickosavovic@gmail.com"
+    "name": "Ricky Didaravong",
+    "email": "rdidaravong@videoamp.com"
   },
-  "license": "MIT",
+  "license": "Apache-2.0",
   "readmeFilename": "README.md",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/Vivify-Ideas/cypress-testrail-reporter.git"
-  },
   "bugs": {
-    "url": "https://github.com/Vivify-Ideas/cypress-testrail-reporter/issues"
+    "url": "https://github.com/VideoAmp/cypress-testrail-reporter/issues"
   },
   "scripts": {
     "tsc": "tsc",
@@ -24,7 +28,7 @@
     "build": "npm run clean && npm run tsc"
   },
   "dependencies": {
-    "axios": "^0.18.0",
+    "axios": "^0.19.0",
     "btoa": "^1.1.2",
     "chalk": "^2.4.1",
     "mocha": "^2.2.5",

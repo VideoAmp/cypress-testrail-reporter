@@ -19,11 +19,15 @@ export class CypressTestRailReporter extends reporters.Spec {
     this.validate(reporterOptions, 'password');
     this.validate(reporterOptions, 'projectId');
     this.validate(reporterOptions, 'suiteId');
-
-    runner.on('start', () => {
-      const executionDateTime = moment().format('MMM Do YYYY, HH:mm (Z)');
-      const name = `${reporterOptions.runName || 'Automated test run'} ${executionDateTime}`;
-      const description = 'For the Cypress run visit https://dashboard.cypress.io/#/projects/runs';
+    const executionDateTime = moment().format('MMM Do YYYY, HH:mm (Z)');
+    const name = `${reporterOptions.runName || 'Automated test run'} ${executionDateTime}`;
+    const buildUrl = `${reporterOptions.buildUrl}`;
+    const githubUrl = `${reporterOptions.githubUrl}`;
+    var description = `For the Cypress run visit https://dashboard.cypress.io/#/projects/runs \n CICD Job URL: ${buildUrl}`;
+    if (githubUrl) {
+      description = description.concat(`\n GitHub Commit URL: ${githubUrl}`);
+    }
+    runner.on('start', async () => {
       this.testRail.createRun(name, description);
     });
 
@@ -63,12 +67,11 @@ export class CypressTestRailReporter extends reporters.Spec {
           'No testcases were matched. Ensure that your tests are declared correctly and matches Cxxx',
           '\n'
         );
-        this.testRail.deleteRun();
-
+        this.testRail.updateRun(false);
         return;
       }
-
       this.testRail.publishResults(this.results);
+      this.testRail.updateRun(false)
     });
   }
 
