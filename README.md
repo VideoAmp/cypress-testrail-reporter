@@ -66,7 +66,7 @@ You can read the whole TestRail documentation [here](http://docs.gurock.com/).
 
 ## Author
 
-Ricky Didaravong - [github](https://github.com/rickydidaravong)
+Milutin Savovic - [github](https://github.com/mickosav)
 
 ## License
 
